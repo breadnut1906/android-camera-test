@@ -1,0 +1,23 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      QR Scanner
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="container my-3">
+    <ion-list>
+      <ion-item *ngFor="let item of barcode">
+        <ion-label position="stacked">{{ item.format }}</ion-label>
+        <ion-input type="text" [value]="item.rawValue"></ion-input>
+      </ion-item>
+    </ion-list>
+    <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+      <ion-fab-button (click)="onScan()" [disabled]="!isSupported">
+        <ion-icon name="scan"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+  </div>
+</ion-content>
